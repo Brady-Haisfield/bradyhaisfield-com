@@ -65,10 +65,27 @@ body {
   background: var(--border);
 }
 
-/* Shiny Text — constant highlight sweep clipped to the text */
-@keyframes shiny-text {
+/* Shiny Text — one shared loop, sequenced line by line. Step 1 sweeps in the
+   first half, step 2 in the second half (starting exactly as step 1 ends), at
+   the same speed, then both reset off-screen and repeat. */
+@keyframes shine-step-1 {
   0% {
     background-position: 200% 0;
+  }
+  49% {
+    background-position: -120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+@keyframes shine-step-2 {
+  0%,
+  49% {
+    background-position: 200% 0;
+  }
+  98% {
+    background-position: -120% 0;
   }
   100% {
     background-position: -120% 0;
@@ -76,9 +93,14 @@ body {
 }
 .shiny-text {
   display: inline-block;
-  animation-name: shiny-text;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+.shiny-step-1 {
+  animation-name: shine-step-1;
+}
+.shiny-step-2 {
+  animation-name: shine-step-2;
 }
 
 /* Swirling animated border — a conic arc orbiting the perimeter */

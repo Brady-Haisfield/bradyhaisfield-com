@@ -47,15 +47,21 @@ export default function Home() {
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
               <span className="block">
-                <ShinyText text="Brady" baseColor="#F4ECE4" shineColor="#FF7A45" />
+                <ShinyText
+                  text="Brady"
+                  baseColor="#F4ECE4"
+                  shineColor="#FF7A45"
+                  step={1}
+                  cycle={10}
+                />
               </span>
               <span className="block">
                 <ShinyText
                   text="Haisfield"
                   baseColor="#FF7A45"
                   shineColor="#FFE2CC"
-                  speed={5.2}
-                  delay={1.6}
+                  step={2}
+                  cycle={10}
                 />
               </span>
             </h1>

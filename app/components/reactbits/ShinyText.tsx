@@ -1,7 +1,11 @@
 "use client";
 
-// React Bits "Shiny Text" — a constant highlight sweep clipped to the text via
-// background-clip. Honors prefers-reduced-motion (renders solid base color).
+// React Bits "Shiny Text" — a highlight sweep clipped to the text via
+// background-clip. Lines are sequenced into ONE shared loop: pass the same
+// `cycle` to every line and an increasing `step` (1, 2, ...). Step 1 sweeps in
+// the first half of the loop, step 2 in the second half, so the highlight runs
+// through one line then the next at a constant speed, then repeats. Honors
+// prefers-reduced-motion (renders solid base color).
 
 import { useEffect, useState } from "react";
 
@@ -12,10 +16,10 @@ type ShinyTextProps = {
   baseColor?: string;
   /** the moving highlight color */
   shineColor?: string;
-  /** seconds per sweep */
-  speed?: number;
-  /** seconds before this line's sweep starts (used to cascade line→line) */
-  delay?: number;
+  /** order in the sequence: 1 sweeps first, 2 sweeps second */
+  step?: 1 | 2;
+  /** total loop length in seconds — keep identical across all lines */
+  cycle?: number;
 };
 
 export default function ShinyText({
@@ -23,8 +27,8 @@ export default function ShinyText({
   className = "",
   baseColor = "#F4ECE4",
   shineColor = "#FFFFFF",
-  speed = 3.6,
-  delay = 0,
+  step = 1,
+  cycle = 10,
 }: ShinyTextProps) {
   const [reduced, setReduced] = useState(false);
 
@@ -44,7 +48,7 @@ export default function ShinyText({
 
   return (
     <span
-      className={`shiny-text ${className}`}
+      className={`shiny-text shiny-step-${step} ${className}`}
       style={{
         backgroundImage: `linear-gradient(110deg, ${baseColor} 35%, ${shineColor} 50%, ${baseColor} 65%)`,
         backgroundSize: "220% 100%",
@@ -52,8 +56,7 @@ export default function ShinyText({
         backgroundClip: "text",
         WebkitTextFillColor: "transparent",
         color: "transparent",
-        animationDuration: `${speed}s`,
-        animationDelay: `${delay}s`,
+        animationDuration: `${cycle}s`,
       }}
     >
       {text}
