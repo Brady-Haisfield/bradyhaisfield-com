@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
+import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
 import ShimmerName from "./components/reactbits/ShimmerName";
@@ -29,6 +30,7 @@ const ABOUT_DETAILS = [
 export default function Home() {
   return (
     <>
+      <ScrollToTop />
       <Nav />
       <main id="top">
         {/* ── Hero ── */}
