@@ -57,7 +57,15 @@ export default function Home() {
                 href="/resume.pdf"
                 className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
               >
-                Download resume ↓
+                Resume ↓
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bradyhaisfield/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                LinkedIn ↗
               </a>
             </div>
           </div>

@@ -24,7 +24,7 @@ Personal portfolio website for Brady Haisfield, a recent college grad entering t
 
 ## Content
 - **Hero**: Name, title (RE tech / aspiring professional), animated intro
-- **About**: Recent grad, interested in RE + tech, joining RE tech startup
+- **About**: Recent grad, interested in RE + tech, joining RE tech startup. (Future: the About section evolves into an interactive "BradyAI" chatbot — visitors ask questions about Brady and get answers. Built after the core site — see Future milestone.)
 - **Projects**: HouseSwipe (thehouseswipe.com), TranchRE (tranchere.com)
 - **Resume**: `/public/resume.pdf` (already added)
 - **LinkedIn**: https://www.linkedin.com/in/bradyhaisfield/
@@ -104,6 +104,14 @@ _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), brow
 - [ ] Task 6.1: design-review pass — animation cohesion, hover states, slop cleanup
 - [ ] Task 6.2: Mobile responsiveness audit (browse across viewports)
 - [ ] Task 6.3: qa pass + performance check (Lighthouse) + final review
+
+### FUTURE MILESTONE: BradyAI Chatbot ⏳ (after core site ships)
+Done condition: About section becomes an interactive AI chat where visitors ask questions about Brady and get answers.
+_Assist: claude-api (Anthropic SDK, prompt caching), frontend-design (chat UI)_
+- [ ] Design the chat experience (entry from About, conversational UI matching DESIGN.md)
+- [ ] Build the backend (Next.js route handler → Claude API, with a system prompt + knowledge base about Brady: resume, projects, background)
+- [ ] Build the chat UI and wire streaming responses
+- [ ] Guardrails (scope answers to Brady; handle off-topic gracefully)
 
 ---
 
