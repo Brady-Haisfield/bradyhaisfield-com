@@ -49,8 +49,8 @@ export default function Home() {
               <span className="block">
                 <ShinyText
                   text="Brady"
-                  baseColor="#F4ECE4"
-                  shineColor="#FF7A45"
+                  baseColor="#FF7A45"
+                  shineColor="#FFFFFF"
                   step={1}
                   cycle={10}
                 />
@@ -59,7 +59,7 @@ export default function Home() {
                 <ShinyText
                   text="Haisfield"
                   baseColor="#FF7A45"
-                  shineColor="#FFE2CC"
+                  shineColor="#FFFFFF"
                   step={2}
                   cycle={10}
                 />
