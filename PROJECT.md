@@ -1,7 +1,7 @@
 # bradyhaisfield.com
 
 **Status**: In Progress  
-**Current Milestone**: 2 — Design System & Layout Shell  
+**Current Milestone**: 3 — Hero & About Sections  
 **Last Updated**: 2026-05-30
 
 ---
@@ -68,14 +68,14 @@ Done condition: Next.js app running locally, pushed to GitHub, live on Vercel, d
 - [x] Task 1.3: Connect repo to Vercel and deploy (auto-deploy from GitHub)
 - [x] Task 1.4: Connect bradyhaisfield.com domain — Cloudflare DNS live, HTTPS valid, apex → www (canonical)
 
-### MILESTONE 2: Design System & Layout Shell ⏳ IN PROGRESS
+### MILESTONE 2: Design System & Layout Shell ✅ COMPLETE
 Done condition: Global styles, fonts, color palette, nav, and page shell ready
 _Assist: design-consultation (system + previews), design-shotgun (optional variants)_
 - [x] Task 2.1: Run design-consultation → DESIGN.md locked (warm-dark + sunset orange #FF7A45, Clash Grotesk / Geist / Geist Mono, editorial layout, disciplined motion)
-- [ ] Task 2.2: Set up design tokens in `globals.css` from DESIGN.md ← CURRENT
-- [~] Task 2.3: Add React Bits components per-section via CLI (TS-TW variant) as needed; Framer Motion already installed
-- [ ] Task 2.4: Build navigation component (minimal, fixed top)
-- [ ] Task 2.5: Build page shell and scroll structure
+- [x] Task 2.2: Design tokens in `app/globals.css` from DESIGN.md; Clash Grotesk wired via Fontshare + real metadata in `app/layout.tsx`
+- [~] Task 2.3: Add React Bits components per-section via CLI (TS-TW) — layered in during M3–M5; Framer Motion installed
+- [x] Task 2.4: Nav component (`app/components/Nav.tsx`) — fixed blur nav, BH / About · Work · Resume
+- [x] Task 2.5: Page shell (`app/page.tsx`) — hero + anchored About/Work sections + footer, scroll structure. `npm run build` passes.
 
 ### MILESTONE 3: Hero & About Sections ⏳
 Done condition: Hero with animated intro and About section live and verified
@@ -108,5 +108,5 @@ _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), brow
 ---
 
 ## Resume Point
-**Next action**: Task 2.2 — Write design tokens from DESIGN.md into `app/globals.css` (warm-dark palette, type vars, spacing, radius), wire Clash Grotesk via Fontshare in `app/layout.tsx`, set real metadata. Then build nav (2.4) and page shell (2.5).  
-**Context**: Local folder `~/Desktop/Personal Website`. Milestone 1 complete (live at www.bradyhaisfield.com). DESIGN.md locked via design-consultation. HTML preview approved at `~/.gstack/projects/Brady-Haisfield-bradyhaisfield-com/designs/design-system-20260530/preview.html`. Deps installed; Framer Motion added; `npm run build` passes. Scaffold pages still hold default create-next-app content.
+**Next action**: Milestone 3 — Hero & About. Add React Bits hero text animation (Split/Blur Text, TS-TW) to the name, build out the full About section (bio + headshot card + detail rows per the approved preview), and add scroll-triggered entrance animations. Headshot file still needed for About.  
+**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–2 complete. Live at www.bradyhaisfield.com. Code shell built and matches the approved preview: `app/globals.css` (tokens), `app/layout.tsx` (Clash via Fontshare + metadata), `app/components/Nav.tsx`, `app/page.tsx` (hero + About/Work/footer shell). `npm run build` passes. React Bits not yet added (no animations live yet).
