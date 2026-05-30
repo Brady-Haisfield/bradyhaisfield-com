@@ -50,7 +50,7 @@ export default function Home() {
                 lines={["Brady", "Haisfield"]}
                 baseColor="#FF7A45"
                 shineColor="#FFFFFF"
-                cycle={10}
+                cycle={7.5}
               />
             </h1>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
