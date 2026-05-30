@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
-import ShinyText from "./components/reactbits/ShinyText";
+import ShimmerName from "./components/reactbits/ShimmerName";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
   return (
@@ -46,24 +46,12 @@ export default function Home() {
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
-              <span className="block">
-                <ShinyText
-                  text="Brady"
-                  baseColor="#FF7A45"
-                  shineColor="#FFFFFF"
-                  step={1}
-                  cycle={10}
-                />
-              </span>
-              <span className="block">
-                <ShinyText
-                  text="Haisfield"
-                  baseColor="#FF7A45"
-                  shineColor="#FFFFFF"
-                  step={2}
-                  cycle={10}
-                />
-              </span>
+              <ShimmerName
+                lines={["Brady", "Haisfield"]}
+                baseColor="#FF7A45"
+                shineColor="#FFFFFF"
+                cycle={10}
+              />
             </h1>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <SwirlBorder>
