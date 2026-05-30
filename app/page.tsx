@@ -17,10 +17,11 @@ function SectionHead({ num, title }: { num: string; title: string }) {
 }
 
 const ABOUT_DETAILS = [
-  { label: "Focus", value: "RE Tech" },
-  { label: "Status", value: "Joining a startup" },
-  { label: "Based", value: "United States" },
-  { label: "Building", value: "2 products" },
+  { label: "School", value: "University of Michigan" },
+  { label: "Class", value: "’26" },
+  { label: "Major", value: "Information Analysis" },
+  { label: "Minor", value: "Business" },
+  { label: "Focus", value: "Real Estate & Tech" },
 ];
 
 export default function Home() {
@@ -39,34 +40,18 @@ export default function Home() {
             }}
           />
           <div className="relative z-10 mx-auto w-full max-w-[var(--maxw)] px-5 sm:px-8">
-            <FadeContent>
-              <div className="mb-7 flex items-center gap-3">
-                <span className="h-[7px] w-[7px] rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" />
-                <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.18em] text-accent">
-                  Real Estate × Technology
-                </span>
-              </div>
-            </FadeContent>
             <h1
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
               <span className="block">
-                <BlurText text="Brady" initialDelay={100} />
+                <BlurText text="Brady" initialDelay={60} />
               </span>
               <span className="block text-accent">
-                <BlurText text="Haisfield" initialDelay={260} />
+                <BlurText text="Haisfield" initialDelay={200} />
               </span>
             </h1>
-            <FadeContent delay={520}>
-              <p className="mt-7 max-w-[540px] text-[19px] leading-relaxed text-muted">
-                Recent grad building at the intersection of{" "}
-                <b className="font-medium text-foreground">real estate</b> and{" "}
-                <b className="font-medium text-foreground">technology</b>.
-                Shipping products that make the industry move faster.
-              </p>
-            </FadeContent>
-            <FadeContent delay={660}>
+            <FadeContent delay={300}>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href="#work"
@@ -91,9 +76,16 @@ export default function Home() {
               </div>
             </FadeContent>
           </div>
-          <span className="absolute bottom-9 left-1/2 -translate-x-1/2 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] text-muted-2">
-            Scroll ↓
-          </span>
+          <a
+            href="#about"
+            aria-label="Scroll to about"
+            className="absolute bottom-9 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted-2 transition-colors hover:text-accent"
+          >
+            <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em]">
+              Scroll
+            </span>
+            <span className="scroll-cue text-lg leading-none">↓</span>
+          </a>
         </header>
 
         {/* ── About ── */}
@@ -106,24 +98,29 @@ export default function Home() {
               <div className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
                 <div>
                   <p className="mb-5 text-[20px] leading-[1.7] text-muted">
-                    I&apos;m a recent college graduate entering the{" "}
+                    I&apos;m a recent{" "}
                     <b className="font-medium text-foreground">
-                      real estate technology
+                      University of Michigan
                     </b>{" "}
-                    industry — drawn to the messy, high-stakes problems where
-                    software can actually change how deals get done.
+                    graduate with a passion for real estate, technology, and
+                    building products that solve real-world problems.
                   </p>
                   <p className="mb-5 text-[20px] leading-[1.7] text-muted">
-                    I&apos;ve built and shipped two products in the space, and
-                    I&apos;m joining a RE tech startup to keep doing exactly
-                    that: turning hard industry problems into{" "}
+                    I&apos;ve{" "}
                     <b className="font-medium text-foreground">
-                      products people use
+                      founded and launched two real estate technology products
                     </b>
-                    .
+                    , gaining firsthand experience identifying market
+                    inefficiencies, developing solutions, and bringing ideas
+                    from concept to launch. Those experiences reinforced my
+                    belief that technology has the power to transform one of the
+                    world&apos;s largest and most complex industries.
                   </p>
                   <p className="text-[20px] leading-[1.7] text-muted">
-                    I care about craft, speed, and getting the details right.
+                    I&apos;m excited to continue building at the intersection of
+                    real estate and technology, creating products that simplify
+                    processes, unlock opportunities, and improve the way people
+                    interact with the built world.
                   </p>
                 </div>
 
@@ -141,12 +138,14 @@ export default function Home() {
                     {ABOUT_DETAILS.map((row) => (
                       <div
                         key={row.label}
-                        className="flex items-center justify-between border-b border-border py-2.5 last:border-b-0"
+                        className="flex items-center justify-between gap-4 border-b border-border py-2.5 last:border-b-0"
                       >
                         <dt className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-wide text-muted-2">
                           {row.label}
                         </dt>
-                        <dd className="text-sm text-foreground">{row.value}</dd>
+                        <dd className="text-right text-sm text-foreground">
+                          {row.value}
+                        </dd>
                       </div>
                     ))}
                   </dl>

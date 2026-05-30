@@ -65,8 +65,29 @@ body {
   background: var(--border);
 }
 
+/* Animated scroll cue in the hero */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+.scroll-cue {
+  display: inline-block;
+  animation: scroll-cue 1.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .scroll-cue {
+    animation: none;
+    opacity: 0.7;
   }
 }

@@ -24,7 +24,7 @@ Personal portfolio website for Brady Haisfield, a recent college grad entering t
 
 ## Content
 - **Hero**: Name, title (RE tech / aspiring professional), animated intro
-- **About**: Recent grad, interested in RE + tech, joining RE tech startup. (Future: the About section evolves into an interactive "BradyAI" chatbot — visitors ask questions about Brady and get answers. Built after the core site — see Future milestone.)
+- **About**: University of Michigan grad ('26, Information Analysis major / Business minor). Founded and launched two RE tech products; building at the intersection of real estate + technology. Stats card: School / Class / Major / Minor / Focus. (Future: the About section evolves into an interactive "BradyAI" chatbot — visitors ask questions about Brady and get answers. Built after the core site — see Future milestone.)
 - **Projects**: HouseSwipe (thehouseswipe.com), TranchRE (tranchere.com)
 - **Resume**: `/public/resume.pdf` (already added)
 - **LinkedIn**: https://www.linkedin.com/in/bradyhaisfield/
