@@ -73,14 +73,14 @@ Done condition: Global styles, fonts, color palette, nav, and page shell ready
 _Assist: design-consultation (system + previews), design-shotgun (optional variants)_
 - [x] Task 2.1: Run design-consultation → DESIGN.md locked (warm-dark + sunset orange #FF7A45, Clash Grotesk / Geist / Geist Mono, editorial layout, disciplined motion)
 - [x] Task 2.2: Design tokens in `app/globals.css` from DESIGN.md; Clash Grotesk wired via Fontshare + real metadata in `app/layout.tsx`
-- [x] Task 2.3: React Bits components under `app/components/reactbits/` — Blur Text (hero) + Scroll Blur (bidirectional scroll-linked blur in/out via Framer useScroll), adapted for framer-motion + Tailwind v4; more added per-section in M4–M5. Shared `app/components/Logo.tsx` (BH mark) used by nav + footer.
+- [x] Task 2.3: React Bits components under `app/components/reactbits/` — Shiny Text (constant highlight sweep on the hero name), Scroll Blur (bidirectional scroll-linked blur via Framer useScroll), Blur Text (retained, currently unused); adapted for framer-motion + Tailwind v4. Shared `app/components/Logo.tsx` (BH mark, nav + footer) and `app/components/SwirlBorder.tsx` (animated conic border, "Star Border" style). CSS animations in `globals.css` (shiny-text, swirl-spin, scroll-cue), all reduced-motion aware.
 - [x] Task 2.4: Nav component (`app/components/Nav.tsx`) — fixed blur nav, BH / About · Work · Resume
 - [x] Task 2.5: Page shell (`app/page.tsx`) — hero + anchored About/Work sections + footer, scroll structure. `npm run build` passes.
 
 ### MILESTONE 3: Hero & About Sections ✅ COMPLETE
 Done condition: Hero with animated intro and About section live and verified
 _Assist: React Bits (text/hero animations), frontend-design (composition), browse (verify in browser)_
-- [x] Task 3.1: Hero — name reveals via React Bits **Blur Text** (`app/components/reactbits/BlurText.tsx`, Framer Motion); eyebrow/subtitle/buttons cascade in
+- [x] Task 3.1: Hero — **centered**; name has a constant highlight sweep (React Bits **Shiny Text**, Brady→Haisfield cascade); CTA buttons (View work / Resume / LinkedIn) centered with a swirling orange animated border (**SwirlBorder**). Eyebrow + subtitle removed; animated scroll cue.
 - [x] Task 3.2: About section — bio + headshot card (`public/headshot.jpg` via next/image) + detail rows (Focus/Status/Based/Building)
 - [x] Task 3.3: Scroll-linked **bidirectional blur** via React Bits–style **Scroll Blur** (`app/components/reactbits/ScrollBlur.tsx`, Framer useScroll) — content blurs in as it enters and out as it leaves, reversing on scroll-up. Honors prefers-reduced-motion. Verified desktop + mobile via browse; `npm run build` passes. (Footer "Let's build" replaced with the BH logo.)
 

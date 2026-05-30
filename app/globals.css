@@ -65,6 +65,62 @@ body {
   background: var(--border);
 }
 
+/* Shiny Text — constant highlight sweep clipped to the text */
+@keyframes shiny-text {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+.shiny-text {
+  display: inline-block;
+  animation-name: shiny-text;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Swirling animated border — a conic arc orbiting the perimeter */
+@keyframes swirl-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+.swirl-border {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  padding: 1.6px;
+  overflow: hidden;
+  isolation: isolate;
+  /* faint static ring so the pill is always defined; the orange arc orbits on top */
+  background: var(--border);
+}
+.swirl-border::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 60%,
+    var(--accent) 78%,
+    #ffd2b0 87%,
+    transparent 94% 100%
+  );
+  animation: swirl-spin 3.6s linear infinite;
+  z-index: 0;
+}
+.swirl-border > * {
+  position: relative;
+  z-index: 1;
+  border-radius: 9999px;
+}
+
 /* Animated scroll cue in the hero */
 @keyframes scroll-cue {
   0%,
@@ -89,5 +145,11 @@ body {
   .scroll-cue {
     animation: none;
     opacity: 0.7;
+  }
+  .shiny-text {
+    animation: none;
+  }
+  .swirl-border::before {
+    animation: none;
   }
 }

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
-import BlurText from "./components/reactbits/BlurText";
+import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
+import ShinyText from "./components/reactbits/ShinyText";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
   return (
@@ -40,39 +41,50 @@ export default function Home() {
                 "radial-gradient(closest-side, rgba(255,122,69,0.22), rgba(255,94,91,0.10) 45%, transparent 75%)",
             }}
           />
-          <ScrollBlur className="relative z-10 mx-auto w-full max-w-[var(--maxw)] px-5 sm:px-8">
+          <ScrollBlur className="relative z-10 mx-auto w-full max-w-[var(--maxw)] px-5 text-center sm:px-8">
             <h1
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
               <span className="block">
-                <BlurText text="Brady" initialDelay={60} />
+                <ShinyText text="Brady" baseColor="#F4ECE4" shineColor="#FF7A45" />
               </span>
-              <span className="block text-accent">
-                <BlurText text="Haisfield" initialDelay={200} />
+              <span className="block">
+                <ShinyText
+                  text="Haisfield"
+                  baseColor="#FF7A45"
+                  shineColor="#FFE2CC"
+                  delay={1.6}
+                />
               </span>
             </h1>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#work"
-                className="rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-all hover:-translate-y-0.5 hover:bg-accent-strong"
-              >
-                View work →
-              </a>
-              <a
-                href="/resume.pdf"
-                className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                Resume ↓
-              </a>
-              <a
-                href="https://www.linkedin.com/in/bradyhaisfield/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
-              >
-                LinkedIn ↗
-              </a>
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              <SwirlBorder>
+                <a
+                  href="#work"
+                  className="inline-flex items-center rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-colors hover:bg-accent-strong"
+                >
+                  View work →
+                </a>
+              </SwirlBorder>
+              <SwirlBorder>
+                <a
+                  href="/resume.pdf"
+                  className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
+                >
+                  Resume ↓
+                </a>
+              </SwirlBorder>
+              <SwirlBorder>
+                <a
+                  href="https://www.linkedin.com/in/bradyhaisfield/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
+                >
+                  LinkedIn ↗
+                </a>
+              </SwirlBorder>
             </div>
           </ScrollBlur>
           <a
