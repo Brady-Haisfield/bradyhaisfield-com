@@ -1,7 +1,7 @@
 # bradyhaisfield.com
 
 **Status**: In Progress  
-**Current Milestone**: 3 — Hero & About Sections  
+**Current Milestone**: 4 — Projects Section  
 **Last Updated**: 2026-05-30
 
 ---
@@ -28,7 +28,7 @@ Personal portfolio website for Brady Haisfield, a recent college grad entering t
 - **Projects**: HouseSwipe (thehouseswipe.com), TranchRE (tranchere.com)
 - **Resume**: `/public/resume.pdf` (already added)
 - **LinkedIn**: https://www.linkedin.com/in/bradyhaisfield/
-- **Headshot**: Available, used tastefully (likely About or footer area) — not yet added to `/public`
+- **Headshot**: Added at `public/headshot.jpg`, used in the About card via next/image.
 
 ## Tooling & Skills
 Skills selected because they genuinely move this specific project forward. Each milestone notes which skill assists it (see Milestone Map).
@@ -54,7 +54,7 @@ Skills selected because they genuinely move this specific project forward. Each 
 - Supabase, Claude API SDK, iOS, docx/pptx/xlsx, mcp-builder — irrelevant to this project.
 
 ## Open Questions / Known Issues
-- Headshot image not yet in `/public` — need the file before building the About section visual.
+- Headshot added (`public/headshot.jpg`, 2.6 MB original; next/image optimizes delivery). Could pre-downscale later if desired.
 - HouseSwipe and TranchRE GitHub repos are private — project cards link to live URLs only.
 
 ---
@@ -73,16 +73,16 @@ Done condition: Global styles, fonts, color palette, nav, and page shell ready
 _Assist: design-consultation (system + previews), design-shotgun (optional variants)_
 - [x] Task 2.1: Run design-consultation → DESIGN.md locked (warm-dark + sunset orange #FF7A45, Clash Grotesk / Geist / Geist Mono, editorial layout, disciplined motion)
 - [x] Task 2.2: Design tokens in `app/globals.css` from DESIGN.md; Clash Grotesk wired via Fontshare + real metadata in `app/layout.tsx`
-- [~] Task 2.3: Add React Bits components per-section via CLI (TS-TW) — layered in during M3–M5; Framer Motion installed
+- [x] Task 2.3: React Bits components added under `app/components/reactbits/` (Blur Text + Fade Content, TS-TW), adapted for framer-motion + Tailwind v4; more added per-section in M4–M5
 - [x] Task 2.4: Nav component (`app/components/Nav.tsx`) — fixed blur nav, BH / About · Work · Resume
 - [x] Task 2.5: Page shell (`app/page.tsx`) — hero + anchored About/Work sections + footer, scroll structure. `npm run build` passes.
 
-### MILESTONE 3: Hero & About Sections ⏳
+### MILESTONE 3: Hero & About Sections ✅ COMPLETE
 Done condition: Hero with animated intro and About section live and verified
 _Assist: React Bits (text/hero animations), frontend-design (composition), browse (verify in browser)_
-- [ ] Task 3.1: Build hero — name, title, animated text (React Bits text animation)
-- [ ] Task 3.2: Build about section — bio, RE/tech framing, headshot
-- [ ] Task 3.3: Scroll-triggered entrance animations on both sections
+- [x] Task 3.1: Hero — name reveals via React Bits **Blur Text** (`app/components/reactbits/BlurText.tsx`, Framer Motion); eyebrow/subtitle/buttons cascade in
+- [x] Task 3.2: About section — bio + headshot card (`public/headshot.jpg` via next/image) + detail rows (Focus/Status/Based/Building)
+- [x] Task 3.3: Scroll-triggered entrances via React Bits **Fade Content** (`app/components/reactbits/FadeContent.tsx`, Intersection Observer, +slight rise). Both components honor prefers-reduced-motion. Verified desktop + mobile via browse; `npm run build` passes.
 
 ### MILESTONE 4: Projects Section ⏳
 Done condition: HouseSwipe and TranchRE showcased with descriptions and live links
@@ -116,5 +116,5 @@ _Assist: claude-api (Anthropic SDK, prompt caching), frontend-design (chat UI)_
 ---
 
 ## Resume Point
-**Next action**: Milestone 3 — Hero & About. Add React Bits hero text animation (Split/Blur Text, TS-TW) to the name, build out the full About section (bio + headshot card + detail rows per the approved preview), and add scroll-triggered entrance animations. Headshot file still needed for About.  
-**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–2 complete. Live at www.bradyhaisfield.com. Code shell built and matches the approved preview: `app/globals.css` (tokens), `app/layout.tsx` (Clash via Fontshare + metadata), `app/components/Nav.tsx`, `app/page.tsx` (hero + About/Work/footer shell). `npm run build` passes. React Bits not yet added (no animations live yet).
+**Next action**: Milestone 4 — Projects Section. Build the project card component (hover lift + cursor spotlight + accent border per DESIGN.md), then add HouseSwipe (thehouseswipe.com) and TranchRE (tranchere.com) cards in the Work section (currently a placeholder paragraph). Wrap card reveals in Fade Content.  
+**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–3 complete. Live at www.bradyhaisfield.com. Hero (Blur Text) + About (headshot card) done with scroll reveals (Fade Content). React Bits components live in `app/components/reactbits/`. `npm run build` passes.
