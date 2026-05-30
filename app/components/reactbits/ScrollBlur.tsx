@@ -34,15 +34,18 @@ export default function ScrollBlur({
     offset: ["start end", "end start"],
   });
 
-  // Sharp through the middle band, blurred + dimmed as it enters/leaves.
+  // Sharp through a wide middle band; blurs in at the bottom edge (entering)
+  // and out only at the very top edge (almost fully scrolled off). The late
+  // blur-out keeps the last sections sharp when parked at the page bottom —
+  // they never reach the high-progress zone, so nothing rests blurry.
   const blur = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.7, 1],
+    [0, 0.12, 0.92, 1],
     [maxBlur, 0, 0, maxBlur],
   );
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.15, 0.85, 1],
+    [0, 0.1, 0.94, 1],
     [0, 1, 1, 0],
   );
   const filter = useMotionTemplate`blur(${blur}px)`;

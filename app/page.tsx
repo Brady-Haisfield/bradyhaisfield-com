@@ -54,6 +54,7 @@ export default function Home() {
                   text="Haisfield"
                   baseColor="#FF7A45"
                   shineColor="#FFE2CC"
+                  speed={5.2}
                   delay={1.6}
                 />
               </span>
