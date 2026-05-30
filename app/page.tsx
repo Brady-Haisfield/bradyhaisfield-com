@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Nav from "./components/Nav";
+import Logo from "./components/Logo";
 import BlurText from "./components/reactbits/BlurText";
-import FadeContent from "./components/reactbits/FadeContent";
+import ScrollBlur from "./components/reactbits/ScrollBlur";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
                 "radial-gradient(closest-side, rgba(255,122,69,0.22), rgba(255,94,91,0.10) 45%, transparent 75%)",
             }}
           />
-          <div className="relative z-10 mx-auto w-full max-w-[var(--maxw)] px-5 sm:px-8">
+          <ScrollBlur className="relative z-10 mx-auto w-full max-w-[var(--maxw)] px-5 sm:px-8">
             <h1
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
@@ -51,31 +52,29 @@ export default function Home() {
                 <BlurText text="Haisfield" initialDelay={200} />
               </span>
             </h1>
-            <FadeContent delay={300}>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#work"
-                  className="rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-all hover:-translate-y-0.5 hover:bg-accent-strong"
-                >
-                  View work →
-                </a>
-                <a
-                  href="/resume.pdf"
-                  className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
-                >
-                  Resume ↓
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/bradyhaisfield/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
-                >
-                  LinkedIn ↗
-                </a>
-              </div>
-            </FadeContent>
-          </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#work"
+                className="rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-all hover:-translate-y-0.5 hover:bg-accent-strong"
+              >
+                View work →
+              </a>
+              <a
+                href="/resume.pdf"
+                className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                Resume ↓
+              </a>
+              <a
+                href="https://www.linkedin.com/in/bradyhaisfield/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-border px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+          </ScrollBlur>
           <a
             href="#about"
             aria-label="Scroll to about"
@@ -91,10 +90,10 @@ export default function Home() {
         {/* ── About ── */}
         <section id="about" className="border-t border-border py-[120px]">
           <div className="mx-auto max-w-[var(--maxw)] px-5 sm:px-8">
-            <FadeContent>
+            <ScrollBlur>
               <SectionHead num="01" title="About" />
-            </FadeContent>
-            <FadeContent delay={120} blur>
+            </ScrollBlur>
+            <ScrollBlur>
               <div className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
                 <div>
                   <p className="mb-5 text-[20px] leading-[1.7] text-muted">
@@ -151,33 +150,31 @@ export default function Home() {
                   </dl>
                 </div>
               </div>
-            </FadeContent>
+            </ScrollBlur>
           </div>
         </section>
 
         {/* ── Work (cards: M4) ── */}
         <section id="work" className="border-t border-border py-[120px]">
           <div className="mx-auto max-w-[var(--maxw)] px-5 sm:px-8">
-            <FadeContent>
+            <ScrollBlur>
               <SectionHead num="02" title="Selected Work" />
-            </FadeContent>
-            <FadeContent delay={120}>
+            </ScrollBlur>
+            <ScrollBlur>
               <p className="max-w-[640px] text-[20px] leading-[1.7] text-muted">
                 Two products at the intersection of real estate and software.
               </p>
-            </FadeContent>
+            </ScrollBlur>
           </div>
         </section>
       </main>
 
-      {/* ── Footer (contact: M5) ── */}
+      {/* ── Footer ── */}
       <footer className="border-t border-border py-20">
-        <div className="mx-auto flex max-w-[var(--maxw)] flex-wrap items-end justify-between gap-8 px-5 sm:px-8">
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(36px,6vw,72px)] font-semibold leading-none tracking-tight">
-            Let&apos;s
-            <br />
-            <span className="text-accent">build.</span>
-          </h2>
+        <ScrollBlur className="mx-auto flex max-w-[var(--maxw)] flex-wrap items-end justify-between gap-8 px-5 sm:px-8">
+          <a href="#top" aria-label="Brady Haisfield — back to top">
+            <Logo className="text-[clamp(56px,11vw,104px)] leading-none" />
+          </a>
           <div className="flex gap-6">
             <a
               href="https://www.linkedin.com/in/bradyhaisfield/"
@@ -194,7 +191,7 @@ export default function Home() {
               Resume ↓
             </a>
           </div>
-        </div>
+        </ScrollBlur>
         <div className="mx-auto mt-14 flex max-w-[var(--maxw)] flex-wrap justify-between gap-3 px-5 font-[family-name:var(--font-mono)] text-xs text-muted-2 sm:px-8">
           <span>© 2026 Brady Haisfield</span>
           <span>bradyhaisfield.com</span>

@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 const LINKS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
@@ -7,11 +9,8 @@ export default function Nav() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/60 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[var(--maxw)] items-center justify-between px-5 sm:px-8">
-        <a
-          href="#top"
-          className="font-[family-name:var(--font-display)] text-xl font-semibold tracking-tight"
-        >
-          B<span className="text-accent">H</span>
+        <a href="#top" aria-label="Brady Haisfield — home">
+          <Logo className="text-xl" />
         </a>
         <div className="flex items-center gap-6 sm:gap-8">
           {LINKS.map((link) => (

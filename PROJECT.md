@@ -73,7 +73,7 @@ Done condition: Global styles, fonts, color palette, nav, and page shell ready
 _Assist: design-consultation (system + previews), design-shotgun (optional variants)_
 - [x] Task 2.1: Run design-consultation → DESIGN.md locked (warm-dark + sunset orange #FF7A45, Clash Grotesk / Geist / Geist Mono, editorial layout, disciplined motion)
 - [x] Task 2.2: Design tokens in `app/globals.css` from DESIGN.md; Clash Grotesk wired via Fontshare + real metadata in `app/layout.tsx`
-- [x] Task 2.3: React Bits components added under `app/components/reactbits/` (Blur Text + Fade Content, TS-TW), adapted for framer-motion + Tailwind v4; more added per-section in M4–M5
+- [x] Task 2.3: React Bits components under `app/components/reactbits/` — Blur Text (hero) + Scroll Blur (bidirectional scroll-linked blur in/out via Framer useScroll), adapted for framer-motion + Tailwind v4; more added per-section in M4–M5. Shared `app/components/Logo.tsx` (BH mark) used by nav + footer.
 - [x] Task 2.4: Nav component (`app/components/Nav.tsx`) — fixed blur nav, BH / About · Work · Resume
 - [x] Task 2.5: Page shell (`app/page.tsx`) — hero + anchored About/Work sections + footer, scroll structure. `npm run build` passes.
 
@@ -82,7 +82,7 @@ Done condition: Hero with animated intro and About section live and verified
 _Assist: React Bits (text/hero animations), frontend-design (composition), browse (verify in browser)_
 - [x] Task 3.1: Hero — name reveals via React Bits **Blur Text** (`app/components/reactbits/BlurText.tsx`, Framer Motion); eyebrow/subtitle/buttons cascade in
 - [x] Task 3.2: About section — bio + headshot card (`public/headshot.jpg` via next/image) + detail rows (Focus/Status/Based/Building)
-- [x] Task 3.3: Scroll-triggered entrances via React Bits **Fade Content** (`app/components/reactbits/FadeContent.tsx`, Intersection Observer, +slight rise). Both components honor prefers-reduced-motion. Verified desktop + mobile via browse; `npm run build` passes.
+- [x] Task 3.3: Scroll-linked **bidirectional blur** via React Bits–style **Scroll Blur** (`app/components/reactbits/ScrollBlur.tsx`, Framer useScroll) — content blurs in as it enters and out as it leaves, reversing on scroll-up. Honors prefers-reduced-motion. Verified desktop + mobile via browse; `npm run build` passes. (Footer "Let's build" replaced with the BH logo.)
 
 ### MILESTONE 4: Projects Section ⏳
 Done condition: HouseSwipe and TranchRE showcased with descriptions and live links
