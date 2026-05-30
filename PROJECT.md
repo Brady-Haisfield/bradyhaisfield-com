@@ -71,8 +71,8 @@ Done condition: Next.js app running locally, pushed to GitHub, live on Vercel, d
 ### MILESTONE 2: Design System & Layout Shell ⏳ IN PROGRESS
 Done condition: Global styles, fonts, color palette, nav, and page shell ready
 _Assist: design-consultation (system + previews), design-shotgun (optional variants)_
-- [ ] Task 2.1: Run design-consultation → lock palette, typography, spacing, motion language ← CURRENT
-- [ ] Task 2.2: Set up design tokens in `globals.css` from the approved system
+- [x] Task 2.1: Run design-consultation → DESIGN.md locked (warm-dark + sunset orange #FF7A45, Clash Grotesk / Geist / Geist Mono, editorial layout, disciplined motion)
+- [ ] Task 2.2: Set up design tokens in `globals.css` from DESIGN.md ← CURRENT
 - [~] Task 2.3: Add React Bits components per-section via CLI (TS-TW variant) as needed; Framer Motion already installed
 - [ ] Task 2.4: Build navigation component (minimal, fixed top)
 - [ ] Task 2.5: Build page shell and scroll structure
@@ -108,5 +108,5 @@ _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), brow
 ---
 
 ## Resume Point
-**Next action**: Task 2.1 — Run **design-consultation** to lock the design system (palette, typography, spacing, motion), then write tokens into `globals.css`.  
-**Context**: Local folder `~/Desktop/Personal Website`. Deps installed; Framer Motion added; `npm run build` passes. Scaffold pages still hold default create-next-app content. Vercel auto-deploys from GitHub `main`; Cloudflare DNS cutover in progress.
+**Next action**: Task 2.2 — Write design tokens from DESIGN.md into `app/globals.css` (warm-dark palette, type vars, spacing, radius), wire Clash Grotesk via Fontshare in `app/layout.tsx`, set real metadata. Then build nav (2.4) and page shell (2.5).  
+**Context**: Local folder `~/Desktop/Personal Website`. Milestone 1 complete (live at www.bradyhaisfield.com). DESIGN.md locked via design-consultation. HTML preview approved at `~/.gstack/projects/Brady-Haisfield-bradyhaisfield-com/designs/design-system-20260530/preview.html`. Deps installed; Framer Motion added; `npm run build` passes. Scaffold pages still hold default create-next-app content.
