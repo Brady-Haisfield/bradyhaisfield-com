@@ -55,6 +55,9 @@ export default function RootLayout({
     >
       <head>
         {/* Clash Grotesk — display face (Fontshare). Geist + Geist Mono via next/font above. */}
+        {/* Preconnect to the Fontshare CDN so the hero display font (the LCP element) loads sooner. */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap"
           rel="stylesheet"
