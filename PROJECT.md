@@ -1,7 +1,7 @@
 # bradyhaisfield.com
 
 **Status**: In Progress  
-**Current Milestone**: 4 — Projects Section  
+**Current Milestone**: 5 — Resume, Skills & Contact  
 **Last Updated**: 2026-05-30
 
 ---
@@ -84,12 +84,12 @@ _Assist: React Bits (text/hero animations), frontend-design (composition), brows
 - [x] Task 3.2: About section — bio + headshot card (`public/headshot.jpg` via next/image) + detail rows (Focus/Status/Based/Building)
 - [x] Task 3.3: Scroll-linked **bidirectional blur** via React Bits–style **Scroll Blur** (`app/components/reactbits/ScrollBlur.tsx`, Framer useScroll) — content blurs in as it enters and out as it leaves, reversing on scroll-up. Honors prefers-reduced-motion. Verified desktop + mobile via browse; `npm run build` passes. (Footer "Let's build" replaced with the BH logo.)
 
-### MILESTONE 4: Projects Section ⏳
-Done condition: HouseSwipe and TranchRE showcased with descriptions and live links
+### MILESTONE 4: Projects Section ✅ COMPLETE
+Done condition: HouseSwipe and TranchRE showcased as logo cards linking to live sites
 _Assist: frontend-design (cards), browse (verify)_
-- [ ] Task 4.1: Build project card component with hover effects
-- [ ] Task 4.2: Add HouseSwipe card (description, thehouseswipe.com)
-- [ ] Task 4.3: Add TranchRE card (description, tranchere.com)
+- [x] Task 4.1: `ProjectCard` component (`app/components/ProjectCard.tsx`) — logo tile, hover lift + accent border + cursor-following spotlight, links out (new tab). No descriptions per user.
+- [x] Task 4.2: HouseSwipe card → real logo pulled from thehouseswipe.com (`public/houseswipe-logo.png`, 256px), links to thehouseswipe.com
+- [x] Task 4.3: TranchRE card → custom sunset-orange real-estate building icon (inline SVG), links to tranchere.com. Cards in a 2-col grid (stacks on mobile), wrapped in Scroll Blur. Verified desktop + mobile; `npm run build` passes.
 
 ### MILESTONE 5: Resume, Skills & Contact ⏳
 Done condition: Resume downloadable, skills visible, LinkedIn + contact in footer
@@ -116,5 +116,5 @@ _Assist: claude-api (Anthropic SDK, prompt caching), frontend-design (chat UI)_
 ---
 
 ## Resume Point
-**Next action**: Milestone 4 — Projects Section. Build the project card component (hover lift + cursor spotlight + accent border per DESIGN.md), then add HouseSwipe (thehouseswipe.com) and TranchRE (tranchere.com) cards in the Work section (currently a placeholder paragraph). Wrap card reveals in Fade Content.  
-**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–3 complete. Live at www.bradyhaisfield.com. Hero (Blur Text) + About (headshot card) done with scroll reveals (Fade Content). React Bits components live in `app/components/reactbits/`. `npm run build` passes.
+**Next action**: Milestone 5 — Resume, Skills & Contact. Resume button already in nav/hero/footer (links `/public/resume.pdf`); build a skills/experience section (RE + tech focus) and finalize the contact/footer (LinkedIn already present). Decide placement of a Skills section between Work and footer.  
+**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–4 complete. Live at www.bradyhaisfield.com. Hero (ShimmerName) + About (headshot) + Work (HouseSwipe + TranchRE logo cards) done with scroll-blur reveals. Reload always lands at top (ScrollToTop strips hash). React Bits + cards in `app/components/`. `npm run build` passes.

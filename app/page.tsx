@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
+import ProjectCard from "./components/ProjectCard";
 import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
@@ -170,9 +171,40 @@ export default function Home() {
               <SectionHead num="02" title="Selected Work" />
             </ScrollBlur>
             <ScrollBlur>
-              <p className="max-w-[640px] text-[20px] leading-[1.7] text-muted">
-                Two products at the intersection of real estate and software.
-              </p>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <ProjectCard href="https://thehouseswipe.com" name="HouseSwipe">
+                  <Image
+                    src="/houseswipe-logo.png"
+                    alt="HouseSwipe logo"
+                    width={112}
+                    height={112}
+                    className="h-28 w-28 rounded-2xl"
+                  />
+                </ProjectCard>
+                <ProjectCard href="https://tranchere.com" name="TranchRE">
+                  <span className="flex h-28 w-28 items-center justify-center rounded-2xl border border-border bg-gradient-to-br from-surface-2 to-background">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 48 48"
+                      fill="none"
+                      stroke="#FF7A45"
+                      strokeWidth={2.4}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <path d="M8 41 H40" />
+                      <path d="M16 41 V13 H32 V41" />
+                      <rect x="19.5" y="18" width="3.2" height="3.2" fill="#FF7A45" stroke="none" />
+                      <rect x="25.3" y="18" width="3.2" height="3.2" fill="#FF7A45" stroke="none" />
+                      <rect x="19.5" y="25" width="3.2" height="3.2" fill="#FF7A45" stroke="none" />
+                      <rect x="25.3" y="25" width="3.2" height="3.2" fill="#FF7A45" stroke="none" />
+                      <path d="M21.5 41 V33 H26.5 V41" />
+                    </svg>
+                  </span>
+                </ProjectCard>
+              </div>
             </ScrollBlur>
           </div>
         </section>
