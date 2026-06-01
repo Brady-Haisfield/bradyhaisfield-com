@@ -223,13 +223,13 @@ export default function Home() {
               href="https://www.linkedin.com/in/bradyhaisfield/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
+              className="inline-flex min-h-[44px] items-center font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
             >
               LinkedIn ↗
             </a>
             <a
               href="/resume.pdf"
-              className="font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
+              className="inline-flex min-h-[44px] items-center font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
             >
               Resume ↓
             </a>
