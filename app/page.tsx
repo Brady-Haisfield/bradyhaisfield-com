@@ -102,18 +102,13 @@ export default function Home() {
         <section id="about" className="border-t border-border py-[120px]">
           <div className="mx-auto max-w-[var(--maxw)] px-5 sm:px-8">
             <ScrollBlur>
-              <div className="mb-14 text-center">
-                <span className="font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted-2">
-                  01
-                </span>
-                <h2 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent">
-                  BradyAI
-                </h2>
-              </div>
-            </ScrollBlur>
-            <ScrollBlur>
               <div className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-                <BradyAIChat />
+                <div>
+                  <h2 className="mb-7 text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent">
+                    BRADYAI
+                  </h2>
+                  <BradyAIChat />
+                </div>
 
                 <div className="rounded-2xl border border-border bg-surface p-5">
                   <div className="relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-xl border border-border">

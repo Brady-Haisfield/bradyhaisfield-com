@@ -104,27 +104,23 @@ export default function BradyAIChat() {
         aria-live="polite"
       >
         {!started ? (
-          <div className="flex flex-col gap-2.5">
-            <span className="mb-0.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.16em] text-muted-2">
+          <div>
+            <span className="mb-3 block font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.16em] text-muted-2">
               Try asking
             </span>
-            {STARTERS.map((q) => (
-              <button
-                key={q}
-                type="button"
-                onClick={() => send(q)}
-                disabled={isStreaming}
-                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-[15px] text-muted transition-colors hover:border-accent/60 hover:text-foreground disabled:opacity-50"
-              >
-                <span>{q}</span>
-                <span
-                  aria-hidden
-                  className="text-muted-2 transition-colors group-hover:text-accent"
+            <div className="grid grid-cols-2 gap-2.5">
+              {STARTERS.map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => send(q)}
+                  disabled={isStreaming}
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-left text-sm leading-snug text-muted transition-colors hover:border-accent/60 hover:text-foreground disabled:opacity-50"
                 >
-                  →
-                </span>
-              </button>
-            ))}
+                  {q}
+                </button>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="space-y-4">
