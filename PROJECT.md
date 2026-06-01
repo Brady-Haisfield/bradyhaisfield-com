@@ -102,7 +102,7 @@ Done condition: Resume downloadable, LinkedIn + contact in footer
 Done condition: Animations cohesive, mobile responsive, site feels premium
 _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), browse (screenshots)_
 - [ ] Task 6.1: design-review pass — animation cohesion, hover states, slop cleanup
-- [ ] Task 6.2: Mobile responsiveness audit (browse across viewports)
+- [x] Task 6.2: Mobile responsiveness audit (browse across viewports) — audited at 390px & 375px section by section; fixed horizontal overflow (body overflow-x:hidden), aligned hero CTA to "View projects", chat tested functionally on mobile. No layout breaks, no console errors.
 - [ ] Task 6.3: qa pass + performance check (Lighthouse) + final review
 
 ### MILESTONE: BradyAI Chatbot ✅ COMPLETE (pulled forward ahead of polish)
