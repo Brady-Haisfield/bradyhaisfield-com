@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.bradyhaisfield.com"),
-  title: "Brady Haisfield — Real Estate × Technology",
+  title: "Brady Haisfield",
   description:
     "Brady Haisfield builds at the intersection of real estate and technology. Portfolio, projects, and resume.",
   openGraph: {
