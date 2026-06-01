@@ -123,6 +123,8 @@ export default function Home() {
                         animateBy="letters"
                         delay={55}
                         stepDuration={0.32}
+                        repeat
+                        shimmer
                         className="justify-center"
                       />
                     </h2>

@@ -139,6 +139,36 @@ body {
   z-index: 1;
 }
 
+/* Per-letter title shimmer (React Bits "Shiny Text"): a white highlight that
+   sweeps across orange glyphs. Each letter is phase-offset via --i so the
+   highlight travels across the word like the hero name's shimmer. */
+@keyframes title-shine {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -150% 0;
+  }
+}
+.shine-letter {
+  display: inline-block;
+  background-image: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent) 40%,
+    #ffffff 50%,
+    var(--accent) 60%,
+    var(--accent) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: title-shine 2.6s linear infinite;
+  animation-delay: calc(var(--i, 0) * -0.3s);
+}
+
 /* Animated scroll cue in the hero */
 @keyframes scroll-cue {
   0%,
@@ -170,5 +200,11 @@ body {
   .glow-card::before {
     animation: none;
     opacity: 0.35;
+  }
+  .shine-letter {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: var(--accent);
+    color: var(--accent);
   }
 }

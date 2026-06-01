@@ -5,7 +5,7 @@
 // can live inside an <h1>. Honors prefers-reduced-motion.
 
 import { motion, useReducedMotion, type Transition } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 
 type Snapshot = Record<string, string | number>;
 
@@ -21,6 +21,10 @@ type BlurTextProps = {
   threshold?: number;
   rootMargin?: string;
   stepDuration?: number;
+  /** Re-run the reveal every time the text re-enters the viewport */
+  repeat?: boolean;
+  /** Continuous per-letter white shimmer sweeping across the glyphs */
+  shimmer?: boolean;
   onAnimationComplete?: () => void;
 };
 
@@ -46,6 +50,8 @@ export default function BlurText({
   threshold = 0.1,
   rootMargin = "0px",
   stepDuration = 0.35,
+  repeat = false,
+  shimmer = false,
   onAnimationComplete,
 }: BlurTextProps) {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
@@ -60,14 +66,17 @@ export default function BlurText({
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(el);
+          if (!repeat) observer.unobserve(el);
+        } else if (repeat) {
+          // Reset to hidden when it leaves so the reveal replays on re-entry.
+          setInView(false);
         }
       },
       { threshold, rootMargin },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold, rootMargin]);
+  }, [threshold, rootMargin, repeat]);
 
   const fromSnapshot: Snapshot = useMemo(
     () =>
@@ -110,13 +119,18 @@ export default function BlurText({
         return (
           <motion.span
             key={index}
+            className={shimmer ? "shine-letter" : undefined}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
             transition={spanTransition}
             onAnimationComplete={
               index === elements.length - 1 ? onAnimationComplete : undefined
             }
-            style={{ display: "inline-block", willChange: "transform, filter, opacity" }}
+            style={{
+              display: "inline-block",
+              willChange: "transform, filter, opacity",
+              ...(shimmer ? ({ "--i": index } as CSSProperties) : {}),
+            }}
           >
             {segment === " " ? " " : segment}
             {animateBy === "words" && index < elements.length - 1 && " "}
