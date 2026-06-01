@@ -11,7 +11,7 @@ export default function Nav() {
       <div className="mx-auto flex h-16 max-w-[var(--maxw)] items-center justify-between px-5 sm:px-8">
         <a
           href="#top"
-          aria-label="Brady Haisfield — home"
+          aria-label="BH — Brady Haisfield, home"
           className="inline-flex min-h-[44px] items-center"
         >
           <Logo className="text-xl" />

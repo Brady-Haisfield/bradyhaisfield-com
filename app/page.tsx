@@ -215,7 +215,7 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer className="border-t border-border py-20">
         <ScrollBlur className="mx-auto flex max-w-[var(--maxw)] flex-wrap items-end justify-between gap-8 px-5 sm:px-8">
-          <a href="#top" aria-label="Brady Haisfield — back to top">
+          <a href="#top" aria-label="BH — Brady Haisfield, back to top">
             <Logo className="text-[clamp(56px,11vw,104px)] leading-none" />
           </a>
           <div className="flex gap-6">
