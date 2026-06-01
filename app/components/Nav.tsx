@@ -1,4 +1,7 @@
+"use client";
+
 import Logo from "./Logo";
+import TrackedLink from "./TrackedLink";
 
 const LINKS = [
   { label: "About", href: "#about" },
@@ -26,12 +29,14 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a
+          <TrackedLink
             href="/resume.pdf"
+            eventName="resume_clicked"
+            eventProperties={{ location: "nav" }}
             className="inline-flex min-h-[44px] items-center rounded-full border border-border px-4 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
           >
             Resume ↓
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </nav>

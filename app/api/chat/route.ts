@@ -6,6 +6,7 @@ import {
   MAX_MESSAGES,
   MAX_TOKENS,
 } from "./brady-context";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 // BradyAI chat endpoint. Streams Claude's response back as plain UTF-8 text.
 // POST is dynamic and uncached by default in Next.js 16, so no `dynamic` export
@@ -54,6 +55,12 @@ export async function POST(request: Request) {
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (!rateLimit(ip)) {
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId: ip,
+      event: "bradyai_rate_limited",
+      properties: { ip },
+    });
     return new Response("Rate limit exceeded. Please try again shortly.", {
       status: 429,
     });

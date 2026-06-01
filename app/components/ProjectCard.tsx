@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import posthog from "posthog-js";
 
 // A logo tile for the Work section: links out to the live product, lifts on
 // hover with an accent border and a cursor-following spotlight. No description —
@@ -21,6 +22,7 @@ export default function ProjectCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => posthog.capture("project_clicked", { project_name: name, href })}
         onMouseMove={(e) => {
           const r = e.currentTarget.getBoundingClientRect();
           e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);

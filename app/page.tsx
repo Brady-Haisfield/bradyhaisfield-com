@@ -8,6 +8,7 @@ import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
 import BounceShimmer from "./components/reactbits/BounceShimmer";
 import Reveal from "./components/reactbits/Reveal";
+import TrackedLink from "./components/TrackedLink";
 
 function SectionHead({ title }: { title: string }) {
   return (
@@ -71,24 +72,28 @@ export default function Home() {
               </Reveal>
               <Reveal delay={220}>
                 <SwirlBorder>
-                  <a
+                  <TrackedLink
                     href="/resume.pdf"
+                    eventName="resume_clicked"
+                    eventProperties={{ location: "hero" }}
                     className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
                   >
                     Resume ↓
-                  </a>
+                  </TrackedLink>
                 </SwirlBorder>
               </Reveal>
               <Reveal delay={300}>
                 <SwirlBorder>
-                  <a
+                  <TrackedLink
                     href="https://www.linkedin.com/in/bradyhaisfield/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    eventName="linkedin_clicked"
+                    eventProperties={{ location: "hero" }}
                     className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
                   >
                     LinkedIn ↗
-                  </a>
+                  </TrackedLink>
                 </SwirlBorder>
               </Reveal>
             </div>
@@ -219,20 +224,24 @@ export default function Home() {
             <Logo className="text-[clamp(56px,11vw,104px)] leading-none" />
           </a>
           <div className="flex gap-6">
-            <a
+            <TrackedLink
               href="https://www.linkedin.com/in/bradyhaisfield/"
               target="_blank"
               rel="noopener noreferrer"
+              eventName="linkedin_clicked"
+              eventProperties={{ location: "footer" }}
               className="inline-flex min-h-[44px] items-center font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
             >
               LinkedIn ↗
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href="/resume.pdf"
+              eventName="resume_clicked"
+              eventProperties={{ location: "footer" }}
               className="inline-flex min-h-[44px] items-center font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted transition-colors hover:text-accent"
             >
               Resume ↓
-            </a>
+            </TrackedLink>
           </div>
         </ScrollBlur>
         <div className="mx-auto mt-14 flex max-w-[var(--maxw)] flex-wrap justify-between gap-3 px-5 font-[family-name:var(--font-mono)] text-xs text-muted-2 sm:px-8">

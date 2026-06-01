@@ -6,6 +6,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
+import posthog from "posthog-js";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -46,9 +47,17 @@ export default function BradyAIChat() {
     ta.style.height = `${Math.min(ta.scrollHeight, 140)}px`;
   }, [input]);
 
-  async function send(text: string) {
+  async function send(text: string, isStarter = false) {
     const content = text.trim().slice(0, MAX_CHARS);
     if (!content || isStreaming) return;
+
+    if (isStarter) {
+      posthog.capture("bradyai_starter_clicked", { prompt: content });
+    } else {
+      posthog.capture("bradyai_message_sent", {
+        message_count: messages.filter((m) => m.role === "user").length + 1,
+      });
+    }
 
     setError(null);
     setInput("");
@@ -141,7 +150,7 @@ export default function BradyAIChat() {
                 <button
                   key={q}
                   type="button"
-                  onClick={() => send(q)}
+                  onClick={() => send(q, true)}
                   disabled={isStreaming}
                   className="rounded-xl border border-border bg-background px-4 py-3 text-left text-sm leading-snug text-muted transition-colors hover:border-accent/60 hover:text-foreground disabled:opacity-50"
                 >
