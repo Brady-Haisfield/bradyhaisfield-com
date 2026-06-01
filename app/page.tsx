@@ -15,8 +15,11 @@ function SectionHead({ num, title }: { num: string; title: string }) {
       <span className="font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted-2">
         {num}
       </span>
-      <h2 className="font-[family-name:var(--font-display)] text-[clamp(32px,5vw,54px)] font-semibold leading-none tracking-tight">
-        {title}
+      <h2
+        aria-label={title}
+        className="font-[family-name:var(--font-display)] text-[clamp(32px,5vw,54px)] font-semibold leading-none tracking-tight text-accent"
+      >
+        <BounceShimmer lines={[title]} baseColor="#FF7A45" shineColor="#FFFFFF" cycle={4} />
       </h2>
     </div>
   );
@@ -170,7 +173,7 @@ export default function Home() {
         <section id="work" className="border-t border-border py-[120px]">
           <div className="mx-auto max-w-[var(--maxw)] px-5 sm:px-8">
             <ScrollBlur>
-              <SectionHead num="02" title="Selected Work" />
+              <SectionHead num="02" title="Projects" />
             </ScrollBlur>
             <ScrollBlur>
               <div className="grid gap-6 sm:grid-cols-2">
