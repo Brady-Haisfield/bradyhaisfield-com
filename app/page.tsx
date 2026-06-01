@@ -9,15 +9,12 @@ import ScrollBlur from "./components/reactbits/ScrollBlur";
 import BounceShimmer from "./components/reactbits/BounceShimmer";
 import Reveal from "./components/reactbits/Reveal";
 
-function SectionHead({ num, title }: { num: string; title: string }) {
+function SectionHead({ title }: { title: string }) {
   return (
-    <div className="mb-14 flex items-baseline gap-4">
-      <span className="font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-muted-2">
-        {num}
-      </span>
+    <div className="mb-14 flex justify-center">
       <h2
         aria-label={title}
-        className="font-[family-name:var(--font-display)] text-[clamp(32px,5vw,54px)] font-semibold leading-none tracking-tight text-accent"
+        className="text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
       >
         <BounceShimmer lines={[title]} baseColor="#FF7A45" shineColor="#FFFFFF" cycle={4} />
       </h2>
@@ -173,7 +170,7 @@ export default function Home() {
         <section id="work" className="border-t border-border py-[120px]">
           <div className="mx-auto max-w-[var(--maxw)] px-5 sm:px-8">
             <ScrollBlur>
-              <SectionHead num="02" title="Projects" />
+              <SectionHead title="Projects" />
             </ScrollBlur>
             <ScrollBlur>
               <div className="grid gap-6 sm:grid-cols-2">
