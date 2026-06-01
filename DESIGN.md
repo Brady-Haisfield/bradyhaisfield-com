@@ -33,7 +33,7 @@
 - **Surface:** `#17120F` · **Surface-2:** `#1F1813` — elevated cards/panels.
 - **Border:** `#2C231C` — hairline dividers, card edges.
 - **Text (primary):** `#F4ECE4` — warm off-white.
-- **Muted:** `#A89C90` · **Muted-2:** `#6E635A` — secondary text, mono section numbers.
+- **Muted:** `#A89C90` · **Muted-2:** `#8A7E72` — secondary text, mono section numbers. (Muted-2 lightened from #6E635A to clear WCAG AA 4.5:1 on the background.)
 - **Accent (signature):** `#FF7A45` — sunset orange. Used sparingly: name/key headline words, links, active states, primary CTA.
 - **Accent-strong:** `#FF6326` — hover/pressed state of the accent.
 - **Hero glow:** radial `rgba(255,122,69,0.22)` → `rgba(255,94,91,0.10)` → transparent, blurred, low-opacity. The only "gradient," and it's atmospheric, not a button.
