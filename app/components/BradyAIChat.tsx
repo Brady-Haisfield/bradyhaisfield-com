@@ -24,6 +24,7 @@ export default function BradyAIChat() {
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const taRef = useRef<HTMLTextAreaElement>(null);
   const reduced = useReducedMotion();
 
   // Auto-scroll the message area to the newest content as it streams in.
@@ -35,6 +36,15 @@ export default function BradyAIChat() {
       behavior: reduced ? "auto" : "smooth",
     });
   }, [messages, reduced]);
+
+  // Grow the input vertically with its content (up to a cap) so a long prompt
+  // is always fully visible instead of scrolling sideways.
+  useEffect(() => {
+    const ta = taRef.current;
+    if (!ta) return;
+    ta.style.height = "auto";
+    ta.style.height = `${Math.min(ta.scrollHeight, 140)}px`;
+  }, [input]);
 
   async function send(text: string) {
     const content = text.trim().slice(0, MAX_CHARS);
@@ -173,16 +183,25 @@ export default function BradyAIChat() {
           e.preventDefault();
           send(input);
         }}
-        className="mt-5 flex items-center gap-2.5"
+        className="mt-5 flex items-end gap-2.5"
       >
-        <input
+        <textarea
+          ref={taRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            // Enter sends; Shift+Enter inserts a newline.
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              send(input);
+            }
+          }}
+          rows={1}
           maxLength={MAX_CHARS}
           placeholder="Ask about Brady…"
           disabled={isStreaming}
           aria-label="Ask BradyAI a question"
-          className="min-w-0 flex-1 rounded-full border border-border bg-background px-5 py-3 text-[15px] text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
+          className="max-h-[140px] min-w-0 flex-1 resize-none rounded-2xl border border-border bg-background px-5 py-3 text-[15px] leading-snug text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
         />
         <button
           type="submit"
