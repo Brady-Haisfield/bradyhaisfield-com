@@ -39,32 +39,25 @@ export default function Reveal({
 
   if (reduced) return <div className={className}>{children}</div>;
 
-  const y = direction === "top" ? -30 : 30;
-  const overshoot = direction === "top" ? 6 : -6;
-  const hidden = { filter: "blur(8px)", opacity: 0, y };
+  const hiddenY = direction === "top" ? -44 : 44;
+  const hidden = { filter: "blur(8px)", opacity: 0, y: hiddenY };
+  const shown = { filter: "blur(0px)", opacity: 1, y: 0 };
+  const d = delay / 1000;
 
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={hidden}
-      animate={
-        inView
-          ? {
-              // Bounce-in: rise, slightly overshoot past the resting point, settle.
-              filter: ["blur(8px)", "blur(3px)", "blur(0px)"],
-              opacity: [0, 0.6, 1],
-              y: [y, overshoot, 0],
-            }
-          : hidden
-      }
+      animate={inView ? shown : hidden}
       transition={
         inView
           ? {
-              duration: 0.62,
-              times: [0, 0.6, 1],
-              ease: "easeOut",
-              delay: delay / 1000,
+              // Spring drives the vertical bounce (overshoot + settle);
+              // blur + opacity fade in quickly underneath it.
+              y: { type: "spring", bounce: 0.5, duration: 0.8, delay: d },
+              opacity: { duration: 0.35, ease: "easeOut", delay: d },
+              filter: { duration: 0.45, ease: "easeOut", delay: d },
             }
           : { duration: 0.3, ease: "easeIn" }
       }
