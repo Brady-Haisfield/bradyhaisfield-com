@@ -1,8 +1,8 @@
 # bradyhaisfield.com
 
 **Status**: In Progress  
-**Current Milestone**: 5 — Resume, Skills & Contact  
-**Last Updated**: 2026-05-30
+**Current Milestone**: 6 — Polish & Final Review  
+**Last Updated**: 2026-06-01
 
 ---
 
@@ -91,12 +91,12 @@ _Assist: frontend-design (cards), browse (verify)_
 - [x] Task 4.2: HouseSwipe card → real logo pulled from thehouseswipe.com (`public/houseswipe-logo.png`, 256px), links to thehouseswipe.com
 - [x] Task 4.3: TranchRE card → custom sunset-orange real-estate building icon (inline SVG), links to tranchere.com. Cards in a 2-col grid (stacks on mobile), wrapped in Scroll Blur. Verified desktop + mobile; `npm run build` passes.
 
-### MILESTONE 5: Resume, Skills & Contact ⏳
-Done condition: Resume downloadable, skills visible, LinkedIn + contact in footer
-_Assist: frontend-design (sections), browse (verify)_
-- [ ] Task 5.1: Build resume download button (PDF already in `/public`)
-- [ ] Task 5.2: Build skills/experience section (RE + tech focus)
-- [ ] Task 5.3: Build contact section and footer with LinkedIn link
+### MILESTONE 5: Resume & Contact ✅ COMPLETE
+Done condition: Resume downloadable, LinkedIn + contact in footer
+**Decision (2026-06-01):** Site scope is intentionally **Landing → About → Projects** only. No standalone Skills/Experience section — the user likes the three sections as they are. Resume + LinkedIn are already surfaced in the nav, hero, and footer, so this milestone is satisfied without a new section.
+- [x] Task 5.1: Resume download button (PDF in `/public`) — present in nav, hero, footer
+- [x] ~~Task 5.2: Skills/experience section~~ — **cut by design** (see decision above)
+- [x] Task 5.3: Contact in footer — LinkedIn link present
 
 ### MILESTONE 6: Polish & Final Review ⏳
 Done condition: Animations cohesive, mobile responsive, site feels premium
@@ -105,16 +105,18 @@ _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), brow
 - [ ] Task 6.2: Mobile responsiveness audit (browse across viewports)
 - [ ] Task 6.3: qa pass + performance check (Lighthouse) + final review
 
-### FUTURE MILESTONE: BradyAI Chatbot ⏳ (after core site ships)
+### MILESTONE: BradyAI Chatbot ✅ COMPLETE (pulled forward ahead of polish)
 Done condition: About section becomes an interactive AI chat where visitors ask questions about Brady and get answers.
-_Assist: claude-api (Anthropic SDK, prompt caching), frontend-design (chat UI)_
-- [ ] Design the chat experience (entry from About, conversational UI matching DESIGN.md)
-- [ ] Build the backend (Next.js route handler → Claude API, with a system prompt + knowledge base about Brady: resume, projects, background)
-- [ ] Build the chat UI and wire streaming responses
-- [ ] Guardrails (scope answers to Brady; handle off-topic gracefully)
+_Assist: @anthropic-ai/sdk (Haiku 4.5, streaming), frontend-design (chat UI), browse (verify)_
+- [x] Chat experience: replaced the About bio with a "BradyAI" chat panel (left column); kept the headshot+stats card (right). Starter-question chips, greeting, streaming answers, plain-text rendering. Matches DESIGN.md tokens; reduced-motion aware.
+- [x] Backend: streaming Next 16 Route Handler `app/api/chat/route.ts` → Claude `claude-haiku-4-5-20251001`. System prompt + knowledge base in `app/api/chat/brady-context.ts`.
+- [x] Chat UI + streaming: `app/components/BradyAIChat.tsx` (fetch + ReadableStream reader, appends text deltas live).
+- [x] Guardrails: scope-to-Brady system prompt + off-topic decline; server-side limits (≤1000 chars/msg, ≤12 msgs, max_tokens 512); per-IP in-memory rate limit (10/min); contact policy shares only brady@bradyhaisfield.com + LinkedIn, refuses phone/address. Verified live via curl + browse.
+- **Key:** `ANTHROPIC_API_KEY` in `.env.local` (gitignored) for local; **must be set in Vercel env vars** for production.
+- **Future upgrades (optional):** distributed rate limiting (@upstash/ratelimit), prompt caching on the system prompt, persistent chat history.
 
 ---
 
 ## Resume Point
-**Next action**: Milestone 5 — Resume, Skills & Contact. Resume button already in nav/hero/footer (links `/public/resume.pdf`); build a skills/experience section (RE + tech focus) and finalize the contact/footer (LinkedIn already present). Decide placement of a Skills section between Work and footer.  
-**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–4 complete. Live at www.bradyhaisfield.com. Hero (ShimmerName) + About (headshot) + Work (HouseSwipe + TranchRE logo cards) done with scroll-blur reveals. Reload always lands at top (ScrollToTop strips hash). React Bits + cards in `app/components/`. `npm run build` passes.
+**Next action**: Milestone 6 — Polish & Final Review. Site scope is locked to **Landing → About → Projects** (no Skills section — cut by design). Run a design-review pass (animation cohesion, hover states, slop), a mobile responsiveness audit across viewports, and a qa + Lighthouse pass, then final review.  
+**Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–5 complete. Live at www.bradyhaisfield.com. Hero (ShimmerName) + About (headshot) + Work (HouseSwipe + TranchRE logo cards) done with scroll-blur reveals. Resume + LinkedIn in nav/hero/footer. Reload always lands at top (ScrollToTop strips hash). React Bits + cards in `app/components/`. `npm run build` passes.

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "./components/Nav";
 import Logo from "./components/Logo";
 import ProjectCard from "./components/ProjectCard";
+import BradyAIChat from "./components/BradyAIChat";
 import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
@@ -105,33 +106,7 @@ export default function Home() {
             </ScrollBlur>
             <ScrollBlur>
               <div className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-                <div>
-                  <p className="mb-5 text-[20px] leading-[1.7] text-muted">
-                    I&apos;m a recent{" "}
-                    <b className="font-medium text-foreground">
-                      University of Michigan
-                    </b>{" "}
-                    graduate with a passion for real estate, technology, and
-                    building products that solve real-world problems.
-                  </p>
-                  <p className="mb-5 text-[20px] leading-[1.7] text-muted">
-                    I&apos;ve{" "}
-                    <b className="font-medium text-foreground">
-                      founded and launched two real estate technology products
-                    </b>
-                    , gaining firsthand experience identifying market
-                    inefficiencies, developing solutions, and bringing ideas
-                    from concept to launch. Those experiences reinforced my
-                    belief that technology has the power to transform one of the
-                    world&apos;s largest and most complex industries.
-                  </p>
-                  <p className="text-[20px] leading-[1.7] text-muted">
-                    I&apos;m excited to continue building at the intersection of
-                    real estate and technology, creating products that simplify
-                    processes, unlock opportunities, and improve the way people
-                    interact with the built world.
-                  </p>
-                </div>
+                <BradyAIChat />
 
                 <div className="rounded-2xl border border-border bg-surface p-5">
                   <div className="relative mb-5 aspect-[4/5] w-full overflow-hidden rounded-xl border border-border">
