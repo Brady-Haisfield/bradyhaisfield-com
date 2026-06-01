@@ -6,7 +6,7 @@ import BradyAIChat from "./components/BradyAIChat";
 import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
-import ShimmerName from "./components/reactbits/ShimmerName";
+import BounceShimmer from "./components/reactbits/BounceShimmer";
 import Reveal from "./components/reactbits/Reveal";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
@@ -51,14 +51,12 @@ export default function Home() {
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
-              <Reveal direction="left">
-                <ShimmerName
-                  lines={["Brady", "Haisfield"]}
-                  baseColor="#FF7A45"
-                  shineColor="#FFFFFF"
-                  cycle={7.5}
-                />
-              </Reveal>
+              <BounceShimmer
+                lines={["Brady", "Haisfield"]}
+                baseColor="#FF7A45"
+                shineColor="#FFFFFF"
+                cycle={7.5}
+              />
             </h1>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               <Reveal delay={140}>
@@ -122,19 +120,17 @@ export default function Home() {
                           "radial-gradient(closest-side, rgba(255,122,69,0.28), transparent 75%)",
                       }}
                     />
-                    <Reveal direction="left" className="relative z-10">
-                      <h2
-                        aria-label="BradyAI"
-                        className="text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
-                      >
-                        <ShimmerName
-                          lines={["BRADYAI"]}
-                          baseColor="#FF7A45"
-                          shineColor="#FFFFFF"
-                          cycle={4}
-                        />
-                      </h2>
-                    </Reveal>
+                    <h2
+                      aria-label="BradyAI"
+                      className="relative z-10 text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
+                    >
+                      <BounceShimmer
+                        lines={["BRADYAI"]}
+                        baseColor="#FF7A45"
+                        shineColor="#FFFFFF"
+                        cycle={4}
+                      />
+                    </h2>
                   </div>
                   <BradyAIChat />
                 </div>
