@@ -39,17 +39,35 @@ export default function Reveal({
 
   if (reduced) return <div className={className}>{children}</div>;
 
-  const y = direction === "top" ? -28 : 28;
-  const hidden = { filter: "blur(10px)", opacity: 0, y };
-  const shown = { filter: "blur(0px)", opacity: 1, y: 0 };
+  const y = direction === "top" ? -30 : 30;
+  const overshoot = direction === "top" ? 6 : -6;
+  const hidden = { filter: "blur(8px)", opacity: 0, y };
 
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={hidden}
-      animate={inView ? shown : hidden}
-      transition={{ duration: 0.6, delay: delay / 1000, ease: "easeOut" }}
+      animate={
+        inView
+          ? {
+              // Bounce-in: rise, slightly overshoot past the resting point, settle.
+              filter: ["blur(8px)", "blur(3px)", "blur(0px)"],
+              opacity: [0, 0.6, 1],
+              y: [y, overshoot, 0],
+            }
+          : hidden
+      }
+      transition={
+        inView
+          ? {
+              duration: 0.62,
+              times: [0, 0.6, 1],
+              ease: "easeOut",
+              delay: delay / 1000,
+            }
+          : { duration: 0.3, ease: "easeIn" }
+      }
       style={{ willChange: "transform, filter, opacity" }}
     >
       {children}

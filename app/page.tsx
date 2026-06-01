@@ -7,7 +7,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
 import ShimmerName from "./components/reactbits/ShimmerName";
-import BlurText from "./components/reactbits/BlurText";
 import Reveal from "./components/reactbits/Reveal";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
@@ -123,20 +122,19 @@ export default function Home() {
                           "radial-gradient(closest-side, rgba(255,122,69,0.28), transparent 75%)",
                       }}
                     />
-                    <h2
-                      aria-label="BradyAI"
-                      className="relative z-10 text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
-                    >
-                      <BlurText
-                        text="BRADYAI"
-                        animateBy="letters"
-                        delay={55}
-                        stepDuration={0.32}
-                        repeat
-                        shimmer
-                        className="justify-center"
-                      />
-                    </h2>
+                    <Reveal className="relative z-10">
+                      <h2
+                        aria-label="BradyAI"
+                        className="text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
+                      >
+                        <ShimmerName
+                          lines={["BRADYAI"]}
+                          baseColor="#FF7A45"
+                          shineColor="#FFFFFF"
+                          cycle={4}
+                        />
+                      </h2>
+                    </Reveal>
                   </div>
                   <BradyAIChat />
                 </div>
