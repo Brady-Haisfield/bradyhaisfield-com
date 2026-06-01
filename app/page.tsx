@@ -51,7 +51,7 @@ export default function Home() {
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
-              <Reveal>
+              <Reveal direction="left">
                 <ShimmerName
                   lines={["Brady", "Haisfield"]}
                   baseColor="#FF7A45"
@@ -122,7 +122,7 @@ export default function Home() {
                           "radial-gradient(closest-side, rgba(255,122,69,0.28), transparent 75%)",
                       }}
                     />
-                    <Reveal className="relative z-10">
+                    <Reveal direction="left" className="relative z-10">
                       <h2
                         aria-label="BradyAI"
                         className="text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"

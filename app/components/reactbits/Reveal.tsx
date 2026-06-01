@@ -19,7 +19,7 @@ export default function Reveal({
   className?: string;
   /** ms before this element begins its reveal (for staggering) */
   delay?: number;
-  direction?: "top" | "bottom";
+  direction?: "top" | "bottom" | "left" | "right";
   threshold?: number;
 }) {
   const [inView, setInView] = useState(false);
@@ -39,9 +39,15 @@ export default function Reveal({
 
   if (reduced) return <div className={className}>{children}</div>;
 
-  const hiddenY = direction === "top" ? -44 : 44;
-  const hidden = { filter: "blur(8px)", opacity: 0, y: hiddenY };
-  const shown = { filter: "blur(0px)", opacity: 1, y: 0 };
+  const horizontal = direction === "left" || direction === "right";
+  const offset = direction === "top" || direction === "left" ? -44 : 44;
+  const hidden = {
+    filter: "blur(8px)",
+    opacity: 0,
+    x: horizontal ? offset : 0,
+    y: horizontal ? 0 : offset,
+  };
+  const shown = { filter: "blur(0px)", opacity: 1, x: 0, y: 0 };
   const d = delay / 1000;
 
   return (
@@ -53,11 +59,12 @@ export default function Reveal({
       transition={
         inView
           ? {
-              // Spring drives the vertical bounce (overshoot + settle);
-              // blur + opacity fade in quickly underneath it.
-              y: { type: "spring", bounce: 0.5, duration: 1.0, delay: d },
-              opacity: { duration: 0.35, ease: "easeOut", delay: d },
-              filter: { duration: 0.45, ease: "easeOut", delay: d },
+              // Spring drives the bounce (overshoot + settle) on whichever axis
+              // is offset; blur + opacity fade in quickly underneath it.
+              x: { type: "spring", bounce: 0.5, duration: 1.25, delay: d },
+              y: { type: "spring", bounce: 0.5, duration: 1.25, delay: d },
+              opacity: { duration: 0.4, ease: "easeOut", delay: d },
+              filter: { duration: 0.5, ease: "easeOut", delay: d },
             }
           : { duration: 0.3, ease: "easeIn" }
       }
