@@ -10,10 +10,10 @@ import { useReducedMotion } from "framer-motion";
 type Msg = { role: "user" | "assistant"; content: string };
 
 const STARTERS = [
-  "Tell me about HouseSwipe",
-  "What did you do at Brookfield?",
-  "What's your background?",
-  "How can I contact you?",
+  "Who is Brady?",
+  "Where did Brady go to school?",
+  "What is HouseSwipe?",
+  "What are Brady's hobbies?",
 ];
 
 const MAX_CHARS = 1000;
@@ -92,15 +92,10 @@ export default function BradyAIChat() {
 
   return (
     <div className="flex h-[480px] flex-col rounded-2xl border border-border bg-surface p-6 sm:p-7">
-      {/* Header */}
-      <div className="mb-6">
-        <h3 className="font-[family-name:var(--font-display)] text-[32px] font-semibold leading-none tracking-tight">
-          Brady<span className="text-accent">AI</span>
-        </h3>
-        <p className="mt-2.5 text-[15px] leading-snug text-muted">
-          Ask me anything to learn more about Brady.
-        </p>
-      </div>
+      {/* Greeting */}
+      <p className="mb-6 text-[15px] leading-snug text-muted">
+        Ask me anything to learn more about Brady.
+      </p>
 
       {/* Body — suggestions before the first message, conversation after */}
       <div
