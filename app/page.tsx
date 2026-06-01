@@ -65,7 +65,7 @@ export default function Home() {
                     href="#work"
                     className="inline-flex items-center rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-colors hover:bg-accent-strong"
                   >
-                    View work →
+                    View projects →
                   </a>
                 </SwirlBorder>
               </Reveal>
