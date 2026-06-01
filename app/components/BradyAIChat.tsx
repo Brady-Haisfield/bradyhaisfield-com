@@ -91,66 +91,72 @@ export default function BradyAIChat() {
   const started = messages.length > 0;
 
   return (
-    <div className="flex h-[460px] flex-col rounded-2xl border border-border bg-surface p-5">
+    <div className="flex h-[480px] flex-col rounded-2xl border border-border bg-surface p-6 sm:p-7">
       {/* Header */}
-      <div className="mb-1 flex items-center gap-2">
-        <span className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-wide text-muted-2">
-          BradyAI
-        </span>
-        <span
-          aria-hidden
-          className={`h-1.5 w-1.5 rounded-full bg-accent ${reduced ? "" : "animate-pulse"}`}
-        />
+      <div className="mb-6">
+        <h3 className="font-[family-name:var(--font-display)] text-[32px] font-semibold leading-none tracking-tight">
+          Brady<span className="text-accent">AI</span>
+        </h3>
+        <p className="mt-2.5 text-[15px] leading-snug text-muted">
+          Ask me anything to learn more about Brady.
+        </p>
       </div>
-      <p className="mb-4 text-sm text-muted">
-        Ask me anything to learn more about Brady.
-      </p>
 
-      {/* Messages */}
+      {/* Body — suggestions before the first message, conversation after */}
       <div
         ref={scrollRef}
-        className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1"
+        className="min-h-0 flex-1 overflow-y-auto pr-1"
         aria-live="polite"
       >
-        {messages.map((m, i) =>
-          m.role === "user" ? (
-            <div
-              key={i}
-              className="ml-auto max-w-[85%] rounded-xl rounded-br-sm bg-surface-2 px-3.5 py-2.5 text-sm text-foreground"
-            >
-              {m.content}
-            </div>
-          ) : (
-            <div
-              key={i}
-              className="mr-auto max-w-[92%] whitespace-pre-wrap text-sm leading-[1.7] text-foreground"
-            >
-              {m.content}
-              {isStreaming && i === messages.length - 1 && !reduced && (
-                <span className="ml-0.5 inline-block h-3.5 w-[2px] animate-pulse bg-accent align-middle" />
-              )}
-            </div>
-          ),
+        {!started ? (
+          <div className="flex flex-col gap-2.5">
+            <span className="mb-0.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.16em] text-muted-2">
+              Try asking
+            </span>
+            {STARTERS.map((q) => (
+              <button
+                key={q}
+                type="button"
+                onClick={() => send(q)}
+                disabled={isStreaming}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left text-[15px] text-muted transition-colors hover:border-accent/60 hover:text-foreground disabled:opacity-50"
+              >
+                <span>{q}</span>
+                <span
+                  aria-hidden
+                  className="text-muted-2 transition-colors group-hover:text-accent"
+                >
+                  →
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {messages.map((m, i) =>
+              m.role === "user" ? (
+                <div
+                  key={i}
+                  className="ml-auto max-w-[85%] rounded-2xl rounded-br-md bg-surface-2 px-4 py-2.5 text-[15px] text-foreground"
+                >
+                  {m.content}
+                </div>
+              ) : (
+                <div
+                  key={i}
+                  className="mr-auto max-w-[94%] whitespace-pre-wrap text-[15px] leading-[1.7] text-foreground"
+                >
+                  {m.content}
+                  {isStreaming && i === messages.length - 1 && !reduced && (
+                    <span className="ml-0.5 inline-block h-4 w-[2px] animate-pulse bg-accent align-middle" />
+                  )}
+                </div>
+              ),
+            )}
+            {error && <p className="text-[15px] text-accent-strong">{error}</p>}
+          </div>
         )}
-        {error && <p className="text-sm text-accent-strong">{error}</p>}
       </div>
-
-      {/* Starter chips — only before the first message */}
-      {!started && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {STARTERS.map((q) => (
-            <button
-              key={q}
-              type="button"
-              onClick={() => send(q)}
-              disabled={isStreaming}
-              className="rounded-full border border-border bg-background px-3 py-1.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-wide text-muted transition-colors hover:border-accent hover:text-accent disabled:opacity-50"
-            >
-              {q}
-            </button>
-          ))}
-        </div>
-      )}
 
       {/* Input */}
       <form
@@ -158,7 +164,7 @@ export default function BradyAIChat() {
           e.preventDefault();
           send(input);
         }}
-        className="mt-4 flex items-center gap-2"
+        className="mt-5 flex items-center gap-2.5"
       >
         <input
           value={input}
@@ -167,13 +173,13 @@ export default function BradyAIChat() {
           placeholder="Ask about Brady…"
           disabled={isStreaming}
           aria-label="Ask BradyAI a question"
-          className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
+          className="min-w-0 flex-1 rounded-full border border-border bg-background px-5 py-3 text-[15px] text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={isStreaming || !input.trim()}
           aria-label="Send"
-          className="shrink-0 rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent-strong disabled:opacity-50"
+          className="flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-full bg-accent text-lg text-background transition-colors hover:bg-accent-strong disabled:opacity-40"
         >
           →
         </button>
