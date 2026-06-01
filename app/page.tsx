@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
 import ShimmerName from "./components/reactbits/ShimmerName";
+import BlurText from "./components/reactbits/BlurText";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
   return (
@@ -104,9 +105,28 @@ export default function Home() {
             <ScrollBlur>
               <div className="grid items-start gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
                 <div>
-                  <h2 className="mb-7 text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent">
-                    BRADYAI
-                  </h2>
+                  <div className="relative mb-7 flex justify-center">
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[150px] w-[440px] max-w-full -translate-x-1/2 -translate-y-1/2 blur-3xl"
+                      style={{
+                        background:
+                          "radial-gradient(closest-side, rgba(255,122,69,0.28), transparent 75%)",
+                      }}
+                    />
+                    <h2
+                      aria-label="BradyAI"
+                      className="relative z-10 text-center font-[family-name:var(--font-display)] text-[clamp(44px,8vw,76px)] font-semibold leading-none tracking-tight text-accent"
+                    >
+                      <BlurText
+                        text="BRADYAI"
+                        animateBy="letters"
+                        delay={55}
+                        stepDuration={0.32}
+                        className="justify-center"
+                      />
+                    </h2>
+                  </div>
                   <BradyAIChat />
                 </div>
 

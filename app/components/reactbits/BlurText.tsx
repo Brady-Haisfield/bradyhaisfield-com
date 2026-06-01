@@ -4,7 +4,7 @@
 // Uses Framer Motion (already installed). Renders an inline-flex <span> so it
 // can live inside an <h1>. Honors prefers-reduced-motion.
 
-import { motion, type Transition } from "framer-motion";
+import { motion, useReducedMotion, type Transition } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 type Snapshot = Record<string, string | number>;
@@ -50,14 +50,8 @@ export default function BlurText({
 }: BlurTextProps) {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  const reduced = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    setReduced(
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false,
-    );
-  }, []);
 
   useEffect(() => {
     const el = ref.current;

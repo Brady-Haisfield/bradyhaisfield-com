@@ -91,11 +91,29 @@ export default function BradyAIChat() {
   const started = messages.length > 0;
 
   return (
-    <div className="flex h-[480px] flex-col rounded-2xl border border-border bg-surface p-6 sm:p-7">
-      {/* Greeting */}
-      <p className="mb-6 text-[15px] leading-snug text-muted">
-        Ask me anything to learn more about Brady.
-      </p>
+    <div className="glow-card h-[480px] w-full">
+      <div
+        onMouseMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect();
+          e.currentTarget.style.setProperty("--mx", `${e.clientX - r.left}px`);
+          e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
+        }}
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-surface p-6 sm:p-7"
+      >
+        {/* Cursor spotlight */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            background:
+              "radial-gradient(440px circle at var(--mx, 50%) var(--my, 50%), rgba(255,122,69,0.09), transparent 45%)",
+          }}
+        />
+
+        {/* Greeting */}
+        <p className="mb-6 text-[15px] leading-snug text-muted">
+          Ask me anything to learn more about Brady.
+        </p>
 
       {/* Body — suggestions before the first message, conversation after */}
       <div
@@ -175,6 +193,7 @@ export default function BradyAIChat() {
           →
         </button>
       </form>
+      </div>
     </div>
   );
 }

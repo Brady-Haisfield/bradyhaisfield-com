@@ -105,6 +105,40 @@ body {
   border-radius: 9999px;
 }
 
+/* Glow card — a slow sunset arc orbiting a panel's border (React Bits
+   "Spotlight / Glow Card" style). Child supplies its own bg to mask the center. */
+.glow-card {
+  position: relative;
+  border-radius: 18px;
+  padding: 1.5px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--border);
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 220%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 58%,
+    var(--accent) 74%,
+    #ffc6a3 82%,
+    transparent 90% 100%
+  );
+  animation: swirl-spin 7s linear infinite;
+  opacity: 0.5;
+  z-index: 0;
+}
+.glow-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Animated scroll cue in the hero */
 @keyframes scroll-cue {
   0%,
@@ -132,5 +166,9 @@ body {
   }
   .swirl-border::before {
     animation: none;
+  }
+  .glow-card::before {
+    animation: none;
+    opacity: 0.35;
   }
 }
