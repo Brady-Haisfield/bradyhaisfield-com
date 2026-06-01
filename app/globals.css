@@ -165,8 +165,8 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: title-shine 2.6s linear infinite;
-  animation-delay: calc(var(--i, 0) * -0.3s);
+  animation: title-shine 3.8s linear infinite;
+  animation-delay: calc(var(--i, 0) * -0.42s);
 }
 
 /* Animated scroll cue in the hero */

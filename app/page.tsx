@@ -8,6 +8,7 @@ import SwirlBorder from "./components/SwirlBorder";
 import ScrollBlur from "./components/reactbits/ScrollBlur";
 import ShimmerName from "./components/reactbits/ShimmerName";
 import BlurText from "./components/reactbits/BlurText";
+import Reveal from "./components/reactbits/Reveal";
 
 function SectionHead({ num, title }: { num: string; title: string }) {
   return (
@@ -51,40 +52,48 @@ export default function Home() {
               aria-label="Brady Haisfield"
               className="font-[family-name:var(--font-display)] text-[clamp(56px,11vw,150px)] font-semibold leading-[0.92] tracking-[-0.03em]"
             >
-              <ShimmerName
-                lines={["Brady", "Haisfield"]}
-                baseColor="#FF7A45"
-                shineColor="#FFFFFF"
-                cycle={7.5}
-              />
+              <Reveal>
+                <ShimmerName
+                  lines={["Brady", "Haisfield"]}
+                  baseColor="#FF7A45"
+                  shineColor="#FFFFFF"
+                  cycle={7.5}
+                />
+              </Reveal>
             </h1>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-              <SwirlBorder>
-                <a
-                  href="#work"
-                  className="inline-flex items-center rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-colors hover:bg-accent-strong"
-                >
-                  View work →
-                </a>
-              </SwirlBorder>
-              <SwirlBorder>
-                <a
-                  href="/resume.pdf"
-                  className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
-                >
-                  Resume ↓
-                </a>
-              </SwirlBorder>
-              <SwirlBorder>
-                <a
-                  href="https://www.linkedin.com/in/bradyhaisfield/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
-                >
-                  LinkedIn ↗
-                </a>
-              </SwirlBorder>
+              <Reveal delay={140}>
+                <SwirlBorder>
+                  <a
+                    href="#work"
+                    className="inline-flex items-center rounded-full bg-accent px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] font-medium uppercase tracking-wide text-background transition-colors hover:bg-accent-strong"
+                  >
+                    View work →
+                  </a>
+                </SwirlBorder>
+              </Reveal>
+              <Reveal delay={220}>
+                <SwirlBorder>
+                  <a
+                    href="/resume.pdf"
+                    className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
+                  >
+                    Resume ↓
+                  </a>
+                </SwirlBorder>
+              </Reveal>
+              <Reveal delay={300}>
+                <SwirlBorder>
+                  <a
+                    href="https://www.linkedin.com/in/bradyhaisfield/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-full bg-background px-6 py-3.5 font-[family-name:var(--font-mono)] text-[13px] uppercase tracking-wide text-foreground transition-colors hover:text-accent"
+                  >
+                    LinkedIn ↗
+                  </a>
+                </SwirlBorder>
+              </Reveal>
             </div>
           </ScrollBlur>
           <a
