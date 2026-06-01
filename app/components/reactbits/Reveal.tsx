@@ -55,7 +55,7 @@ export default function Reveal({
           ? {
               // Spring drives the vertical bounce (overshoot + settle);
               // blur + opacity fade in quickly underneath it.
-              y: { type: "spring", bounce: 0.5, duration: 0.8, delay: d },
+              y: { type: "spring", bounce: 0.5, duration: 1.0, delay: d },
               opacity: { duration: 0.35, ease: "easeOut", delay: d },
               filter: { duration: 0.45, ease: "easeOut", delay: d },
             }
