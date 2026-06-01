@@ -1,7 +1,7 @@
 # bradyhaisfield.com
 
-**Status**: In Progress  
-**Current Milestone**: 6 — Polish & Final Review  
+**Status**: Complete — all milestones shipped  
+**Current Milestone**: 6 — Polish & Final Review ✅  
 **Last Updated**: 2026-06-01
 
 ---
@@ -98,12 +98,12 @@ Done condition: Resume downloadable, LinkedIn + contact in footer
 - [x] ~~Task 5.2: Skills/experience section~~ — **cut by design** (see decision above)
 - [x] Task 5.3: Contact in footer — LinkedIn link present
 
-### MILESTONE 6: Polish & Final Review ⏳
+### MILESTONE 6: Polish & Final Review ✅ COMPLETE
 Done condition: Animations cohesive, mobile responsive, site feels premium
 _Assist: design-review (visual QA + fixes), qa (functional QA + bug fixes), browse (screenshots)_
-- [ ] Task 6.1: design-review pass — animation cohesion, hover states, slop cleanup
+- [x] Task 6.1: design-review pass — Design A−, AI-Slop A (no slop patterns). Fixed FINDING-001 (sub-44px nav/footer tap targets → 44px) and FINDING-002 (branded :focus-visible accent ring). Headshot perf concern resolved (next/image serves a 640w/q75 image, not the 2.6MB original).
 - [x] Task 6.2: Mobile responsiveness audit (browse across viewports) — audited at 390px & 375px section by section; fixed horizontal overflow (body overflow-x:hidden), aligned hero CTA to "View projects", chat tested functionally on mobile. No layout breaks, no console errors.
-- [ ] Task 6.3: qa pass + performance check (Lighthouse) + final review
+- [x] Task 6.3: qa pass + Lighthouse + final review. Functional QA: all links resolve (anchors, resume PDF 200, project/LinkedIn _blank), console clean (no errors/hydration), BradyAI chat verified — guardrails hold (off-topic declines; phone/address refused; contact = email + LinkedIn), input validation returns 400 on empty/blank/over-length/bad-role, send disabled on empty, streaming works. Fixed ISSUE-001 (muted-2 contrast → WCAG AA 4.99:1) and ISSUE-002 (logo link Label-in-Name), added Fontshare preconnect. Lighthouse desktop: Perf 95 / A11y 100 / Best-Practices 100 / SEO 100. Mobile: Perf 88-89 / A11y 100 / BP 100 / SEO 100 (CLS 0, TBT 10ms; LCP ~3s on simulated slow-4G is font-fallback paint).
 
 ### MILESTONE: BradyAI Chatbot ✅ COMPLETE (pulled forward ahead of polish)
 Done condition: About section becomes an interactive AI chat where visitors ask questions about Brady and get answers.
@@ -118,5 +118,5 @@ _Assist: @anthropic-ai/sdk (Haiku 4.5, streaming), frontend-design (chat UI), br
 ---
 
 ## Resume Point
-**Next action**: Milestone 6 — Polish & Final Review. Site scope is locked to **Landing → About → Projects** (no Skills section — cut by design). Run a design-review pass (animation cohesion, hover states, slop), a mobile responsiveness audit across viewports, and a qa + Lighthouse pass, then final review.  
+**Next action**: None — all 6 milestones + the BradyAI chatbot are complete and live at www.bradyhaisfield.com. Site scope is **Landing → About/BradyAI → Projects** (Skills cut by design). Final scores: Lighthouse desktop 95/100/100/100, mobile 88-89/100/100/100. Future-optional only: distributed rate limiting + prompt caching for the chat, more knowledge-base answers, pre-downscaling the headshot source.  
 **Context**: Local folder `~/Desktop/Personal Website`. Milestones 1–5 complete. Live at www.bradyhaisfield.com. Hero (ShimmerName) + About (headshot) + Work (HouseSwipe + TranchRE logo cards) done with scroll-blur reveals. Resume + LinkedIn in nav/hero/footer. Reload always lands at top (ScrollToTop strips hash). React Bits + cards in `app/components/`. `npm run build` passes.
