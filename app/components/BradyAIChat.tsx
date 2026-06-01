@@ -128,7 +128,7 @@ export default function BradyAIChat() {
       {/* Body — suggestions before the first message, conversation after */}
       <div
         ref={scrollRef}
-        className="min-h-0 flex-1 overflow-y-auto pr-1"
+        className="no-scrollbar min-h-0 flex-1 overflow-y-auto pr-1"
         aria-live="polite"
       >
         {!started ? (
@@ -201,7 +201,7 @@ export default function BradyAIChat() {
           placeholder="Ask about Brady…"
           disabled={isStreaming}
           aria-label="Ask BradyAI a question"
-          className="max-h-[140px] min-w-0 flex-1 resize-none rounded-2xl border border-border bg-background px-5 py-3 text-[15px] leading-snug text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
+          className="no-scrollbar max-h-[140px] min-w-0 flex-1 resize-none rounded-2xl border border-border bg-background px-5 py-3 text-[15px] leading-snug text-foreground outline-none transition-colors placeholder:text-muted-2 focus:border-accent disabled:opacity-50"
         />
         <button
           type="submit"

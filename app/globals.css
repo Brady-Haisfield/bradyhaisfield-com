@@ -65,6 +65,15 @@ body {
   background: var(--border);
 }
 
+/* Hidden scrollbar (scroll still works) — used inside the chat */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 /* Swirling animated border — a conic arc orbiting the perimeter */
 @keyframes swirl-spin {
   to {
